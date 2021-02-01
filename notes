@@ -1,0 +1,15 @@
+Account
+has_many :FoodTrucks
+:name - string
+:email - string
+
+
+FoodTrucks
+belogns_to :Account
+:account_id - integer,
+:name - string
+:location - string
+:type - string
+:hours - string
+:score - float
+:description - string
