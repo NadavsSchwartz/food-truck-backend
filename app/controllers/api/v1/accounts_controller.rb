@@ -5,9 +5,9 @@ class Api::V1::AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new(account_params)
+    @account = Account.create(account_params)
     if @account.save
-      render json: @account
+      render json: { account: @account, message: 'Account was created Successfuly' }
     else
       render json: { error: `Error creating a new Food Truck`, error2: @account.error }
     end
@@ -21,12 +21,10 @@ class Api::V1::AccountsController < ApplicationController
   def delete
     @account = Account.find(params[:id])
     @account.destory
-    render json: {message: 'account was deleted'}
+    render json: { message: 'account was deleted' }
   end
 
-  private
-  
   def account_params
-    params.require(:account).permit(:name, :email)
+    params.require(:data).permit(:name, :email, :password)
   end
 end
