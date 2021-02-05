@@ -8,6 +8,7 @@ class Api::V1::FoodTrucksController < ApplicationController
   end
 
   def create
+    binding.pry
     @foodtruck = @account.food_trucks.new(foodtruck_params)
     if @foodtruck.save
       render json: @foodtruck
@@ -33,6 +34,6 @@ class Api::V1::FoodTrucksController < ApplicationController
     @account = Account.find(params[:account_id])
   end
   def foodtruck_params
-    params.require(:food_truck).permit(:name, :location, :category, :hours, :description, :score, :account_id)
+    params.require(:food_truck)
   end
 end

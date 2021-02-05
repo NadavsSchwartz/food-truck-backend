@@ -1,15 +1,23 @@
 class Api::V1::AccountsController < ApplicationController
   def index
     @accounts = Account.all
-    render json: @accounts
+    if @accounts
+      render json: @accounts
+    else
+      render json: {
+        status: 500,
+        errors: ['no users found']
+      }
+    end
   end
 
   def create
     @account = Account.create(account_params)
     if @account.save
-      render json: { account: @account, message: 'Account was created Successfuly' }
+      session[:account_id] = @account.id
+      render json: @account
     else
-      render json: { error: `Error creating a new Food Truck`, error2: @account.error }
+      render json: { status: 500, error: @account.errors.full_messages }
     end
   end
 
@@ -25,6 +33,6 @@ class Api::V1::AccountsController < ApplicationController
   end
 
   def account_params
-    params.require(:data).permit(:name, :email, :password)
+    params.require(:account).permit(:name, :email, :password)
   end
 end
