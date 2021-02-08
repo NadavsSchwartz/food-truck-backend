@@ -13,8 +13,8 @@
 * Styled component
 
 ### Backend 
-* Ruby [2.6.1]
-* Rails [5.2.3] - MVC framework used as an API
+* Ruby 
+* Rails - MVC framework used as an API
 * Bcrypt - gem used for encryption and securing user passwords
 * Rack-cors - allow for cross-origin resource sharing
 
