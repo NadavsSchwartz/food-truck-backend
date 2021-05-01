@@ -1,24 +1,36 @@
-# README
+## Features
+* Uses Redux Thunk middleware to send and receive data from API
+* Renders JavaScript and HTML onto the DOM through React components
+* Allows for user authentication and authorizes users with sessions
+* Users can add and edit recipes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tech Used
+### Frontend
+* React.js 
+* Redux 
+* Materialize CSS Framework
+* React Router
+* Styled component
 
-Things you may want to cover:
+### Backend 
+* Ruby 
+* Rails - MVC framework used as an API
+* Bcrypt - gem used for encryption and securing user passwords
+* Rack-cors - allow for cross-origin resource sharing
 
-* Ruby version
 
-* System dependencies
+## Installing
 
-* Configuration
+### Backend Installation
+* Clone backend repo to local machine `git clone <backend-repo-url>`.
+* Run `bundle install` to instal dependencies.
+* Run `rails db:create` to create database locally.
+* Run `rails db:migrate` to create tables into the database.
+* Run `rails db:seed` to create seed data.
+* Run `rails s` to run server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Frontend Installation
+* Clone this repo to local machine `git clone <this-repo-url>`.
+* Back-end repo: `https://github.com/NadavsSchwartz/food-truck-backend`
+* Run `npm install` to install all dependencies.
+* Run `npm start` to start server.
