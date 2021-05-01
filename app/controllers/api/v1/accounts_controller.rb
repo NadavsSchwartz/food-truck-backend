@@ -1,8 +1,8 @@
 class Api::V1::AccountsController < ApplicationController
   def index
-    @accounts = Account.all
-    if @accounts
-      render json: @accounts
+    @account = Account.find(params[:account_id])
+    if @account
+      render json: @account
     else
       render json: {
         status: 500,

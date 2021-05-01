@@ -25,11 +25,13 @@ class Api::V1::FoodtrucksController < ApplicationController
     render json: @foodtruck
   end
 
-  def delete
-    binding.pry
-    @foodtruck = @account.food_trucks.find(params[:id])
-    @foodtruck.destory
-    render json: { message: 'FoodTruck was deleted' }
+  def destroy
+    @foodtruck = FoodTruck.find(params[:id])
+    if @foodtruck.destroy
+      render json: { message: 'FoodTruck was deleted', foodtruck_id: params[:id] }
+    else
+      render json: { error: `Error creating a new Food Truck`, error2: @foodtruck.error }
+    end
   end
 
   def update
@@ -37,11 +39,7 @@ class Api::V1::FoodtrucksController < ApplicationController
     if @foodtruck.update(foodtruck_params)
       render json: @foodtruck
     else
-      error_resp = {
-        error: @recipe.errors.full_messages.to_sentence,
-        invalid_account: "You don't have access to this recipe!"
-      }
-      render json: error_resp, status: :unprocessable_entity
+      render json: {error: 'could not update foodtruck', error2: @foodtruck.error}
     end
   end
 

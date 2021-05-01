@@ -16,6 +16,10 @@ gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
+ gem "jwt", "~> 2.2"
+gem 'dotenv-rails'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'pry'
@@ -23,7 +27,7 @@ gem 'pry'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
- gem 'rack-cors'
+ gem 'rack-cors', :require => 'rack/cors'
 
  gem 'active_model_serializers'
 
